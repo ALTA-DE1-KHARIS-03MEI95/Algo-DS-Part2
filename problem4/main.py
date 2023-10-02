@@ -1,5 +1,9 @@
+from collections import Counter
+
 def count_item_and_sort(items):
-    result = ""
+    count_dict = Counter(items)
+    sorted_items = sorted(count_dict.items(), key= lambda x: (x[1], x[0]))
+    result = ' '.join([f'{item[0]}->{item[1]}' for item in sorted_items])
     return result
 
 if __name__ == "__main__":
